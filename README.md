@@ -2,7 +2,9 @@
 Autoclicks in the background, giving you full control of your own mouse to do whatever else you want!
 
 
-Pretty straight forward- Just download the .exe that matches your system (32 or 64-bit).
+Pretty straight forward- Just download the .exe that matches your system (32 or 64-bit). If you don't trust the raw .exe, you can also click "Download ZIP" over on the side.
+
+Also included is the raw .ahk file, also viewable at http://pastebin.com/yLJEbMxP
 
 
 Alt + Backspace -- Toggle autoclicker
