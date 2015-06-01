@@ -1,2 +1,9 @@
-v1.5
-Source code: http://pastebin.com/yLJEbMxP
+Current version: v1.5
+
+Changelog:
+1.5 - Improved "Change speed" GUI- Now allows for clicks/second, or seconds/click
+1.4 - Improved user click detection- Now more reliable during runtime
+1.3 - Increased performance speed and reduced memory usage
+1.2 - x32 and x64 release. Also included the option to change clickrate
+1.1 - Added user input preference. Click while autoclicking
+1.0 - Initial release
