@@ -1,5 +1,5 @@
 ﻿;Non-Intrusive Autoclicker, by Shadowspaz
-;v.1.4
+;v.1.5
 
 #InstallKeybdHook
 DetectHiddenWindows, on
