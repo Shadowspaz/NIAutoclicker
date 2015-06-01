@@ -10,6 +10,7 @@ SetFormat, float, 0.0
 toggle := false
 inputPresent := false
 clickRate := 20
+Mode := 0
 mouseMoved := false
 pmx := 0
 pmy := 0
@@ -27,22 +28,52 @@ while (A_TickCount - TTStart < 5000 && !toggle)
 !=::
   IfWinNotExist, Change Value
   {
-    Gui, Show, w200 h75, Change Value
-    Gui, Add, Text, x25, Clicks per second (Default 50):
-    Gui, Add, Edit, x25 w150 Number Center vTempRate, % 1000 / clickRate
-    Gui, Add, Button, x87 y50 Default gSetVal, Set
-    GuiControl, Focus, TempRate
-    Send +{End}
+    Gui, Show, w210 h110, Change Value
+    Gui, Add, Radio, x25 y10 gActEdit1 vMode, Clicks per second:
+    Gui, Add, Radio, x25 y35 gActEdit2, Seconds per click:
+    Gui, Add, Edit, x135 y8 w50 Number Left vTempRateCPS, % 1000 / clickRate
+    Gui, Add, Edit, x135 y33 w50 Number Left vTempRateSPC, % clickRate / 1000
+    Gui, Add, Text, x0 w210 0x10
+    Gui, Add, Text, x27 y65, (Default is 50 clicks per second)
+    Gui, Add, Button, x87 y82 Default gSetVal, Set
+    if Mode < 2
+    {
+      GuiControl,, Mode, 1
+      GoSub, ActEdit1
+    }
+    else
+    {
+      GuiControl,, Seconds per click:, 1
+      GoSub, ActEdit2
+    }
   }
   else
     WinActivate, Change Value
 return
 
+ActEdit1:
+  GuiControl, Enable, TempRateCPS
+  GuiControl, Disable, TempRateSPC
+  GuiControl, Focus, TempRateCPS
+  Send +{End}
+return
+
+ActEdit2:
+  GuiControl, Enable, TempRateSPC
+  GuiControl, Disable, TempRateCPS
+  GuiControl, Focus, TempRateSPC
+  Send +{End}
+return
+
 SetVal:
   Gui, Submit
-  clickRate := TempRate > 0 ? 1000 / TempRate : 1000
+  if Mode < 2
+    clickRate := TempRateCPS > 0 ? 1000 / TempRateCPS : 1000
+  else
+    clickRate := TempRateSPC > 0 ? 1000 * TempRateSPC : 1000
 GuiClose:
-  if toggle {
+  if toggle
+  {
     EmptyMem()
     setTimer, autoclick, %clickRate%
   }
@@ -121,9 +152,10 @@ return
   Click up
 return
 
-EmptyMem(){
-    pid:= DllCall("GetCurrentProcessId")
-    h:=DllCall("OpenProcess", "UInt", 0x001F0FFF, "Int", 0, "Int", pid)
-    DllCall("SetProcessWorkingSetSize", "UInt", h, "Int", -1, "Int", -1)
-    DllCall("CloseHandle", "Int", h)
+EmptyMem()
+{
+  pid:= DllCall("GetCurrentProcessId")
+  h:=DllCall("OpenProcess", "UInt", 0x001F0FFF, "Int", 0, "Int", pid)
+  DllCall("SetProcessWorkingSetSize", "UInt", h, "Int", -1, "Int", -1)
+  DllCall("CloseHandle", "Int", h)
 }
