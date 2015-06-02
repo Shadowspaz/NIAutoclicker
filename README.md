@@ -11,6 +11,8 @@ Alt + Backspace -- Toggle autoclicker
 
 Alt + = -- Change click speed
 
+(Version number is shown in the "Change Click Speed" window)
+
 
 While it's running, minimizing the window will, in most cases, cause the application to lag severely. I don't know if it's something I can fix, or if it's a result of sending clicks to a minimized window, but as a solution, just leave the window open in the background.
 
