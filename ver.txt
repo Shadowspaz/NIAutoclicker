@@ -1,6 +1,7 @@
-Current version: v1.5
+Current version: v1.5.1
 
 Changelog:
+1.5.1 - Slight tweak to click handling- May improve click recognition when setting click location
 1.5 - Improved "Change speed" GUI- Now allows for clicks/second, or seconds/click
 1.4 - Improved user click detection- Now more reliable during runtime
 1.3 - Increased performance speed and reduced memory usage

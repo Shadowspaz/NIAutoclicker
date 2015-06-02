@@ -1,5 +1,5 @@
 ﻿;Non-Intrusive Autoclicker, by Shadowspaz
-;v.1.5
+;v1.5.1
 
 #InstallKeybdHook
 DetectHiddenWindows, on
@@ -35,7 +35,9 @@ while (A_TickCount - TTStart < 5000 && !toggle)
     Gui, Add, Edit, x135 y33 w50 Number Left vTempRateSPC, % clickRate / 1000
     Gui, Add, Text, x0 w210 0x10
     Gui, Add, Text, x27 y65, (Default is 50 clicks per second)
-    Gui, Add, Button, x87 y82 Default gSetVal, Set
+    Gui, Add, Button, x92 y82 Default gSetVal, Set
+    Gui, Font, s6
+    Gui, Add, Text, x188 y101, v1.5.1
     if Mode < 2
     {
       GuiControl,, Mode, 1
@@ -143,13 +145,15 @@ return
   MouseGetPos,,, winClick
   if winClick = %actWin%
     setTimer, autoclick, off
-  Click down
+  SetMouseDelay -1
+  Send {Blind}{LButton Down}
 return
 
 *LButton up::
   IfWinNotExist, Change Value
     setTimer, autoclick, %clickRate%
-  Click up
+  SetMouseDelay -1
+  Send {Blind}{LButton Up}
 return
 
 EmptyMem()
