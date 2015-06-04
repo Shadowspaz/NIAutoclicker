@@ -1,5 +1,5 @@
 ﻿;Non-Intrusive Autoclicker, by Shadowspaz
-;v1.5.1
+;v1.5.2
 
 #InstallKeybdHook
 DetectHiddenWindows, on
@@ -14,6 +14,8 @@ Mode := 0
 mouseMoved := false
 pmx := 0
 pmy := 0
+TempRateCPS := 50
+TempRateSPC := 1
 
 setTimer, checkMouseMovement, 10
 
@@ -29,16 +31,16 @@ while (A_TickCount - TTStart < 5000 && !toggle)
   IfWinNotExist, Change Value
   {
     Gui, Show, w210 h110, Change Value
-    Gui, Add, Radio, x25 y10 gActEdit1 vMode, Clicks per second:
+    Gui, Add, Radio, x25 y10 gActEdit1 vmode, Clicks per second:
     Gui, Add, Radio, x25 y35 gActEdit2, Seconds per click:
-    Gui, Add, Edit, x135 y8 w50 Number Left vTempRateCPS, % 1000 / clickRate
-    Gui, Add, Edit, x135 y33 w50 Number Left vTempRateSPC, % clickRate / 1000
+    Gui, Add, Edit, x135 y8 w50 Number Left vtempRateCPS, % tempRateCPS
+    Gui, Add, Edit, x135 y33 w50 Number Left vtempRateSPC, % tempRateSPC
     Gui, Add, Text, x0 w210 0x10
     Gui, Add, Text, x27 y65, (Default is 50 clicks per second)
     Gui, Add, Button, x92 y82 Default gSetVal, Set
     Gui, Font, s6
-    Gui, Add, Text, x188 y101, v1.5.1
-    if Mode < 2
+    Gui, Add, Text, x188 y101, v1.5.2
+    if mode < 2
     {
       GuiControl,, Mode, 1
       GoSub, ActEdit1
@@ -54,25 +56,25 @@ while (A_TickCount - TTStart < 5000 && !toggle)
 return
 
 ActEdit1:
-  GuiControl, Enable, TempRateCPS
-  GuiControl, Disable, TempRateSPC
-  GuiControl, Focus, TempRateCPS
+  GuiControl, Enable, tempRateCPS
+  GuiControl, Disable, tempRateSPC
+  GuiControl, Focus, tempRateCPS
   Send +{End}
 return
 
 ActEdit2:
-  GuiControl, Enable, TempRateSPC
-  GuiControl, Disable, TempRateCPS
-  GuiControl, Focus, TempRateSPC
+  GuiControl, Enable, tempRateSPC
+  GuiControl, Disable, tempRateCPS
+  GuiControl, Focus, tempRateSPC
   Send +{End}
 return
 
 SetVal:
   Gui, Submit
-  if Mode < 2
-    clickRate := TempRateCPS > 0 ? 1000 / TempRateCPS : 1000
+  if mode < 2
+    clickRate := tempRateCPS > 0 ? 1000 / tempRateCPS : 1000
   else
-    clickRate := TempRateSPC > 0 ? 1000 * TempRateSPC : 1000
+    clickRate := tempRateSPC > 0 ? 1000 * tempRateSPC : 1000
 GuiClose:
   if toggle
   {

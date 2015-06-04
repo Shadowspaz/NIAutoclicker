@@ -1,6 +1,7 @@
-Current version: v1.5.1
+Current version: v1.5.2
 
 Changelog:
+1.5.2 - Clickspeed GUI now displays the same number you typed in, and saves each number for CPS and SPC
 1.5.1 - Slight tweak to click handling- May improve click recognition when setting click location
 1.5 - Improved "Change speed" GUI- Now allows for clicks/second, or seconds/click
 1.4 - Improved user click detection- Now more reliable during runtime
