@@ -1,11 +1,11 @@
 # NIAutoclicker
-### Autoclicks in the background, giving you full control of your own mouse to do whatever else you want! ###
-
+##### Autoclicks in the background, giving you full control of your own mouse to do whatever else you want! #####
+---
 ### Download ###
 You can grab the files straight from here, or head over to the [https://github.com/Shadowspaz/NIAutoclicker/releases](releases) tab for simple downloads.
 
 Also included is the raw .ahk file, also viewable at http://pastebin.com/yLJEbMxP
-
+---
 ### How To Use ###
 Alt + Backspace -- Toggle autoclicker
 
