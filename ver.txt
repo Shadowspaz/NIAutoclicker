@@ -1,6 +1,9 @@
-Current version: v1.5.2
+Current version: v2.1.0
 
 Changelog:
+2.1.0 - Added support for multiple click locations
+      - Toggle hotkey no longer requires you to reset location(s)
+      - Added "Reset" button to options
 1.5.2 - Clickspeed GUI now displays the same number you typed in, and saves each number for CPS and SPC
 1.5.1 - Slight tweak to click handling- May improve click recognition when setting click location
 1.5 - Improved "Change speed" GUI- Now allows for clicks/second, or seconds/click
