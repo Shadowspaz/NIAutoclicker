@@ -22,13 +22,13 @@ While it's running, minimizing the window will, in most cases, cause the applica
 ---
 
 ### Common Issues ###
-##### If it was running fine, and starts lagging: #####
+** If it was running fine, and starts lagging: **
 If it starts lagging for you, hold left-click in the target window until clicking stops, then drag the cursor outside of the window, let go, and immediately click again.
 
 This should clear up the lag, assuming it can run smoothly at that speed in the first place.
 I have no idea why this fixes it. If I can figure it out, hopefully I can get it in the script, and just keep it running smooth, all the time.
 
-##### If NIAutoclicker works, but not in specific programs: #####
+** If NIAutoclicker works, but not in specific programs: **
 Run NIAutoclicker as administrator.
 
 ---
