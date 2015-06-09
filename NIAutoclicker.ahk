@@ -1,5 +1,5 @@
 ﻿;Non-Intrusive Autoclicker, by Shadowspaz
-;v2.1.0
+;v2.1.1
 
 #InstallKeybdHook
 #SingleInstance, Force
@@ -60,7 +60,7 @@ while (A_TickCount - TTStart < 5000 && !toggle)
     Gui, Add, Button, x60 y117 gReset, Reset
     Gui, Add, Button, x112 y117 Default gSetVal, Set
     Gui, Font, s6
-    Gui, Add, Text, x188 y151, v2.1.0
+    Gui, Add, Text, x188 y151, v2.1.1
     if mode < 2
     {
       GuiControl,, Mode, 1
@@ -221,18 +221,16 @@ return
 return
 
 #If WinActive("ahk_id" . actWin) && toggle
-*LButton::
+$~*LButton::
   MouseGetPos,,, winClick
   if winClick = %actWin%
     setTimer, autoclick, off
-  SetMouseDelay -1
   Send {Blind}{LButton Down}
 return
 
-*LButton up::
+$~*LButton up::
   IfWinNotExist, NIAC Settings
     setTimer, autoclick, %clickRate%
-  SetMouseDelay -1
   Send {Blind}{LButton Up}
 return
 
