@@ -11,7 +11,7 @@ Also included is the raw .ahk file, also viewable at http://pastebin.com/yLJEbMx
 ### How To Use ###
 **Alt + Backspace** -- Toggle autoclicker
 
-**Alt + =** -- Change click speed
+**Alt + -** -- Open options window
 
 *(Version number is shown in the "Change Click Speed" window)*
 
